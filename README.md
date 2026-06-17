@@ -39,6 +39,7 @@ cp -r kb/ .jcode/skills/kb/
 
 ```
 Initialize the knowledge base with kb skill
+```
 
 This creates:
 
