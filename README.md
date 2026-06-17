@@ -1,6 +1,11 @@
 # kb — OKF Knowledge Base Skill
 
+[![English](https://img.shields.io/badge/lang-EN-blue)](README.md)
+[![中文](https://img.shields.io/badge/lang-中文-red)](README_CN.md)
+
 A skill for managing knowledge bases using [Open Knowledge Format (OKF)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md). Inspired by [Karpathy's LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f).
+
+> 📖 **[中文文档 / Chinese Documentation →](README_CN.md)**
 
 ## What It Does
 
