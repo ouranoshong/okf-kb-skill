@@ -28,12 +28,11 @@ Tell your agent:
 Install the kb skill from https://github.com/ouranoshong/okf-kb-skill.git
 ```
 
-The agent will ask where to install:
+The agent should:
 
-- **Project-level** → `./skills/kb/` (current project only)
-- **Global** → `~/.agent/skills/kb/` (all projects)
-
-The agent should detect its own configuration and copy the `kb/` directory accordingly.
+1. Check its own configuration for available skill installation paths
+2. Ask the user where to install (project-level or global)
+3. Clone the repository and copy the `kb/` directory to the chosen location
 
 ```
 Initialize the knowledge base with kb skill
