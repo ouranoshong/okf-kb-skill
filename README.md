@@ -25,28 +25,14 @@ Teaches your AI agent to operate an OKF knowledge base — Markdown files + YAML
 Tell your agent:
 
 ```
-Install the kb skill from https://github.com/ouranoshong/okf-kb-skill.git
+Install or update the kb skill from https://github.com/ouranoshong/okf-kb-skill.git
 ```
 
 The agent should:
 
 1. Check its own configuration for available skill installation paths
-2. Ask the user where to install (project-level or global)
-3. Clone the repository and copy the `kb/` directory to the chosen location
-
-## Update
-
-Tell your agent:
-
-```
-Update the kb skill from https://github.com/ouranoshong/okf-kb-skill.git
-```
-
-The agent should:
-
-1. Pull the latest changes from the repository
-2. Replace the existing `kb/` directory with the updated version
-```
+2. If not installed: ask the user where to install (project-level or global), then clone and copy
+3. If already installed: pull the latest changes and replace the existing `kb/` directory
 Initialize the knowledge base with kb skill
 ```
 

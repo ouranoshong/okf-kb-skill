@@ -25,28 +25,14 @@
 告诉你的代理：
 
 ```
-从 https://github.com/ouranoshong/okf-kb-skill.git 安装 kb skill
+从 https://github.com/ouranoshong/okf-kb-skill.git 安装或更新 kb skill
 ```
 
 代理应该：
 
 1. 检查自身配置中可用的 skill 安装路径
-2. 询问用户安装位置（项目级或全局）
-3. 克隆仓库并将 `kb/` 目录复制到用户选择的位置
-
-## 更新
-
-告诉你的代理：
-
-```
-从 https://github.com/ouranoshong/okf-kb-skill.git 更新 kb skill
-```
-
-代理应该：
-
-1. 从仓库拉取最新更改
-2. 用更新版本替换现有的 `kb/` 目录
-```
+2. 如果未安装：询问用户安装位置（项目级或全局），然后克隆并复制
+3. 如果已安装：拉取最新更改并替换现有的 `kb/` 目录
 使用 kb skill 初始化知识库
 ```
 
