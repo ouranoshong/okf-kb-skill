@@ -15,6 +15,7 @@
 |------|------|
 | **Init** | 创建完整的知识库目录结构 |
 | **Ingest** | 将原始资料编译为结构化 OKF Concept |
+| **Ingest Repo** | Clone git 文档仓库并从中创建 Concept |
 | **Query** | 基于知识库回答问题 |
 | **Lint** | 健康检查——孤立文档、矛盾内容、过期内容 |
 | **Update** | 将新信息合并到已有 Concept |

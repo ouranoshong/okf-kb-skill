@@ -15,6 +15,7 @@ Teaches your AI agent to operate an OKF knowledge base — Markdown files + YAML
 |-----------|-------------|
 | **Init** | Create the full knowledge base directory structure |
 | **Ingest** | Compile raw sources into structured OKF Concepts |
+| **Ingest Repo** | Clone a git docs repo and create Concepts from it |
 | **Query** | Answer questions based on the knowledge base |
 | **Lint** | Health check — orphans, contradictions, stale content |
 | **Update** | Merge new info into existing Concepts |

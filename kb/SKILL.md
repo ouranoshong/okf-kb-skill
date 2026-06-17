@@ -106,6 +106,130 @@ Create the full OKF bundle structure from scratch.
 
 **One source may produce multiple Concepts** — split by distinct knowledge unit. **One source may update multiple existing Concepts** — create/merge as needed.
 
+### Ingest Repo (git clone → concepts)
+
+Clone a git repository's documentation into `raw/` and systematically create OKF Concepts from it. Use for official docs repos, library references, API documentation, or any structured documentation hosted in git.
+
+#### Step 1: Clone into raw/
+
+```bash
+cd <knowledge-base>/raw
+git clone --depth 1 <repo-url> <repo-name>
+```
+
+- Use `--depth 1` to save space — only latest snapshot needed
+- Name the directory descriptively: `cangjie-docs`, `react-docs`, `tokio-docs`
+- Clone target: `<knowledge-base>/raw/<repo-name>/`
+
+#### Step 2: Explore doc structure
+
+Map the repository's documentation layout before writing any Concepts:
+
+1. List top-level files — identify README, TOC, summary files
+2. Find the docs directory — may be `docs/`, `doc/`, `website/`, `book/`, or root-level
+3. Check for bilingual structure — `source_zh_cn/` + `source_en/` or similar
+4. List topic subdirectories — these become natural Concept groupings
+5. Count total `.md` files to gauge scope
+6. Read 2-3 overview/summary files to understand content format and depth
+
+**Use `task` with `explore` agent** for large repos (>50 files) to map the structure in parallel while cloning.
+
+#### Step 3: Read key documents
+
+Read overview files and the most important topic documents in parallel:
+
+- **Overview files** (`*_overview.md`, `README.md`) — give the big picture
+- **Summary/TOC files** (`summary_*.md`) — reveal the full topic tree
+- **Core topic docs** — read 5-10 of the most important/foundational topics
+- **Sample API docs** — understand the API documentation pattern (if applicable)
+
+Group related topics: a single Concept file may cover 2-3 closely related topic directories if they share a cohesive theme (e.g., "JSON + Base64 + Hex" → one Encoding Concept).
+
+#### Step 4: Create Concept files
+
+Write Concepts in parallel using `write`. Each Concept follows the OKF schema:
+
+```yaml
+---
+type: Technology
+title: <Library/Tool Name> — <Specific Aspect>
+description: <one-line summary>
+source: /raw/<repo-name>/<path-to-source-doc>
+tags: [<repo-tag>, <topic-tags>, stdx]
+confidence: high
+related:
+  - /concepts/technology/<related-concept>.md
+timestamp: 2026-06-17T00:00:00Z
+---
+```
+
+**Body structure** (for Technology type):
+
+```markdown
+# Overview
+<1-2 paragraph summary of what this covers>
+
+# Key Concepts
+<tables, code examples, API summaries —提炼, not copy-paste>
+
+# Trade-offs
+<pros/cons table — what to use when>
+
+# Citations
+[1] <source doc path>
+```
+
+**Grouping rules:**
+
+| Repo structure | Concept grouping |
+|----------------|-----------------|
+| One topic per dir, many files | One Concept per topic dir |
+| Related sub-packages (e.g., `crypto/common`, `crypto/digest`) | One Concept covering the group |
+| Small utility packages (e.g., `base64`, `hex`) | Merge into one Concept (e.g., "Encoding") |
+| Core language + extensions | Separate repo = separate Concept section |
+
+**Content rules:**
+
+- **提炼, not 复制**: Extract key ideas, APIs, patterns. Never paste entire docs.
+- **Code examples**: Include 1-3 representative snippets, not exhaustive API listings.
+- **Tables**: Use for API summaries, feature matrices, comparison tables.
+- **Cross-reference**: Link to related Concepts (both within the same repo and across repos).
+- **Source field**: Always point to the raw source doc path for traceability.
+
+#### Step 5: Update indexes and log
+
+1. **`concepts/index.md`** — add a new section for the repo:
+
+   ```markdown
+   ## <Repo/Project Name>
+
+   Based on [<repo-name>](<repo-url>) — <one-line description>:
+
+   | Concept | 说明 |
+   |---------|------|
+   | [concept-name](technology/concept-name.md) | description |
+   ```
+
+2. **`concepts/<type>/index.md`** — add entries for each new Concept
+
+3. **`log.md`** — append ingestion record:
+
+   ```markdown
+   - **Cloned** `raw/<repo-name>/` ← git clone `<repo-url>` (<description>)
+   - **Ingested** <repo-name> → created N concept files in `/concepts/technology/`:
+     - `concept-1.md` — description
+     - `concept-2.md` — description
+   ```
+
+#### Anti-Patterns for Repo Ingest
+
+- **NEVER** clone the entire git history — use `--depth 1`
+- **NEVER** create one Concept per file — group related topics into cohesive Concepts
+- **NEVER** copy-paste doc content verbatim — extract and restructure
+- **NEVER** skip the overview/summary reading step — you need the big picture first
+- **NEVER** forget to cross-reference with existing Concepts in the knowledge base
+- **AVOID** creating Concepts for trivially small docs (e.g., a single function reference) — merge into a parent Concept
+
 ### Query
 
 1. Start from `concepts/index.md` or tag search
