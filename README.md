@@ -38,8 +38,7 @@ cp -r kb/ .jcode/skills/kb/
 ### 2. Ask your agent to initialize
 
 ```
-使用 kb skill 初始化知识库
-```
+Initialize the knowledge base with kb skill
 
 This creates:
 
@@ -63,13 +62,13 @@ knowledge-base/
 ### 3. Ingest sources
 
 ```
-将 raw/articles/ 下的所有文档编译为 Concept
+Compile all documents in raw/articles/ into Concepts
 ```
 
 ### 4. Query
 
 ```
-基于知识库回答：什么是 Actor Model？
+Based on the knowledge base, answer: What is the Actor Model?
 ```
 
 ## Concept Types
