@@ -33,6 +33,12 @@ The agent should:
 1. Check its own configuration for available skill installation paths
 2. If not installed: ask the user where to install (project-level or global), then clone and copy
 3. If already installed: pull the latest changes and replace the existing `kb/` directory
+
+## Quick Start
+
+### 1. Ask your agent to initialize
+
+```
 Initialize the knowledge base with kb skill
 ```
 
@@ -55,13 +61,13 @@ knowledge-base/
 └── assets/                # Diagrams, images
 ```
 
-### 3. Ingest sources
+### 2. Ingest sources
 
 ```
 Compile all documents in raw/articles/ into Concepts
 ```
 
-### 4. Query
+### 3. Query
 
 ```
 Based on the knowledge base, answer: What is the Actor Model?
