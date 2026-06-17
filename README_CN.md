@@ -20,9 +20,17 @@
 | **Update** | 将新信息合并到已有 Concept |
 | **Create Entity** | 创建可复用的实体页面（人物、公司、工具等） |
 
-## 快速开始
+## 安装
 
-### 1. 复制 skill
+### 方式 A：一键安装（推荐）
+
+复制以下命令到你的代理对话框中执行：
+
+```
+git clone https://github.com/ouranoshong/okf-kb-skill.git /tmp/okf-kb-skill && bash /tmp/okf-kb-skill/install.sh
+```
+
+### 方式 B：手动安装
 
 ```bash
 # oh-my-pi
@@ -34,7 +42,6 @@ cp -r kb/ .skills/kb/
 # jcode
 cp -r kb/ .jcode/skills/kb/
 ```
-
 ### 2. 让你的代理初始化
 
 ```
