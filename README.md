@@ -34,6 +34,18 @@ The agent should:
 2. Ask the user where to install (project-level or global)
 3. Clone the repository and copy the `kb/` directory to the chosen location
 
+## Update
+
+Tell your agent:
+
+```
+Update the kb skill from https://github.com/ouranoshong/okf-kb-skill.git
+```
+
+The agent should:
+
+1. Pull the latest changes from the repository
+2. Replace the existing `kb/` directory with the updated version
 ```
 Initialize the knowledge base with kb skill
 ```
