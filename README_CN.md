@@ -28,14 +28,12 @@
 从 https://github.com/ouranoshong/okf-kb-skill.git 安装 kb skill
 ```
 
-代理应该：
+代理会询问安装位置：
 
-1. 克隆仓库
-2. 将 `kb/` 目录复制到对应的 skills 文件夹：
-   - oh-my-pi: `~/.omp/skills/kb/`
-   - adk-rust: `.skills/kb/`
-   - jcode: `.jcode/skills/kb/`
-### 2. 让你的代理初始化
+- **项目级** → `./skills/kb/`（仅当前项目）
+- **全局** → `~/.agent/skills/kb/`（所有项目）
+
+代理应根据自身配置检测并复制 `kb/` 目录到对应位置。
 
 ```
 使用 kb skill 初始化知识库

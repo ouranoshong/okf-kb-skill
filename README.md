@@ -28,14 +28,12 @@ Tell your agent:
 Install the kb skill from https://github.com/ouranoshong/okf-kb-skill.git
 ```
 
-The agent should:
+The agent will ask where to install:
 
-1. Clone the repository
-2. Copy the `kb/` directory to the appropriate skills folder:
-   - oh-my-pi: `~/.omp/skills/kb/`
-   - adk-rust: `.skills/kb/`
-   - jcode: `.jcode/skills/kb/`
-### 2. Ask your agent to initialize
+- **Project-level** → `./skills/kb/` (current project only)
+- **Global** → `~/.agent/skills/kb/` (all projects)
+
+The agent should detect its own configuration and copy the `kb/` directory accordingly.
 
 ```
 Initialize the knowledge base with kb skill
