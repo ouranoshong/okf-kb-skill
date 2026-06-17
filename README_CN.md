@@ -22,26 +22,19 @@
 
 ## 安装
 
-### 方式 A：一键安装（推荐）
-
-复制以下命令到你的代理对话框中执行：
+告诉你的代理：
 
 ```
-git clone https://github.com/ouranoshong/okf-kb-skill.git /tmp/okf-kb-skill && bash /tmp/okf-kb-skill/install.sh
+从 https://github.com/ouranoshong/okf-kb-skill.git 安装 kb skill
 ```
 
-### 方式 B：手动安装
+代理应该：
 
-```bash
-# oh-my-pi
-cp -r kb/ ~/.omp/skills/kb/
-
-# adk-rust
-cp -r kb/ .skills/kb/
-
-# jcode
-cp -r kb/ .jcode/skills/kb/
-```
+1. 克隆仓库
+2. 将 `kb/` 目录复制到对应的 skills 文件夹：
+   - oh-my-pi: `~/.omp/skills/kb/`
+   - adk-rust: `.skills/kb/`
+   - jcode: `.jcode/skills/kb/`
 ### 2. 让你的代理初始化
 
 ```

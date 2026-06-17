@@ -22,26 +22,19 @@ Teaches your AI agent to operate an OKF knowledge base — Markdown files + YAML
 
 ## Installation
 
-### Option A: One-liner (Recommended)
-
-Copy and paste into your agent's chat:
+Tell your agent:
 
 ```
-git clone https://github.com/ouranoshong/okf-kb-skill.git /tmp/okf-kb-skill && bash /tmp/okf-kb-skill/install.sh
+Install the kb skill from https://github.com/ouranoshong/okf-kb-skill.git
 ```
 
-### Option B: Manual
+The agent should:
 
-```bash
-# oh-my-pi
-cp -r kb/ ~/.omp/skills/kb/
-
-# adk-rust
-cp -r kb/ .skills/kb/
-
-# jcode
-cp -r kb/ .jcode/skills/kb/
-```
+1. Clone the repository
+2. Copy the `kb/` directory to the appropriate skills folder:
+   - oh-my-pi: `~/.omp/skills/kb/`
+   - adk-rust: `.skills/kb/`
+   - jcode: `.jcode/skills/kb/`
 ### 2. Ask your agent to initialize
 
 ```
